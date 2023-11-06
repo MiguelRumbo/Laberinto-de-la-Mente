@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
@@ -7,6 +8,8 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject enemyPrefab; // Asigna el prefab del enemigo en el inspector.
     public Transform playerTransform; // Asigna la transformación del jugador en el inspector.
     public Transform[] spawnPoints; // Asigna los cubos hijos como puntos de spawn en el inspector.
+    public Animator animator;
+    public Light playerLight;
 
     private bool canSpawn = true;
     private float minCooldownDuration = 30f; // Mínima duración del cooldown en segundos
@@ -53,6 +56,9 @@ public class SpawnEnemy : MonoBehaviour
             // Obtén la referencia al script "SeguirJugador" del nuevo enemigo
             SeguirJugador scriptSeguirJugador = newEnemy.GetComponent<SeguirJugador>();
 
+            // Iniciar Animación
+            animator.enabled = true;
+
             if (scriptSeguirJugador != null)
             {
                 // Asigna el transform del jugador al script "SeguirJugador" del enemigo
@@ -71,6 +77,15 @@ public class SpawnEnemy : MonoBehaviour
         if (!canSpawn && Time.time - lastEnemyDestroyedTime >= Random.Range(minCooldownDuration, maxCooldownDuration))
         {
             canSpawn = true;
+        }
+        // Verifica si hay enemigos vivos en el mapa.
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
+        if (enemigos.Length == 0)
+        {
+            // Detener Animación
+            animator.enabled = false;
+            playerLight.enabled = true;
         }
     }
 }
