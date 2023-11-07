@@ -8,7 +8,7 @@ public class ControladorBarraVida : MonoBehaviour
     public float damageAmount = 0.15f;
     public float recoveryRate = 0.1f;
     public float timeToStartRecovery = 5f;
-    public string gameOverSceneName = "NombreDeTuEscenaGameOver";
+    public string gameOverSceneName = "";
 
     private float lastDamageTime;
 

@@ -122,7 +122,7 @@ MonoBehaviour:
   damageAmount: 0.15
   recoveryRate: 0.1
   timeToStartRecovery: 5
-  gameOverSceneName: GameOver
+  gameOverSceneName: Menu Inicial
 --- !u!1 &6866066386293342723
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   damageAmount: 0.15
   recoveryRate: 0.1
   timeToStartRecovery: 5
-  gameOverSceneName: GameOver
+  gameOverSceneName: Menu Inicial
 --- !u!1001 &7714137808386570480
 PrefabInstance:
   m_ObjectHideFlags: 0
