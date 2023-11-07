@@ -1,6 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -84,7 +86,7 @@ public class SpawnEnemy : MonoBehaviour
             canSpawn = true;
         }
 
-        Debug.Log("Tiempo de cooldown actual: " + (Time.time - lastEnemyDestroyedTime));
+        /* Debug.Log("Tiempo de cooldown actual: " + (Time.time - lastEnemyDestroyedTime)); */
         
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
 

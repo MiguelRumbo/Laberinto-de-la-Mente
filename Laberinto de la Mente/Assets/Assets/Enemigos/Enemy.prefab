@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7735236602162584448}
   - component: {fileID: 7708940522288827401}
   - component: {fileID: 1368129181652998137}
-  - component: {fileID: 3577595500273873631}
+  - component: {fileID: 1999768373874005263}
   m_Layer: 0
   m_Name: Damage
   m_TagString: Untagged
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275871326277666058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3577595500273873631
+--- !u!114 &1999768373874005263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarImage: {fileID: 0}
-  damageAmount: 0.25
+  damageAmount: 0.15
   recoveryRate: 0.1
   timeToStartRecovery: 5
   gameOverSceneName: GameOver
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1282805016164821949}
   - component: {fileID: 5522071684484031305}
   - component: {fileID: 7159641149927449188}
-  - component: {fileID: 4233235670598007287}
+  - component: {fileID: 2749512256708624139}
   m_Layer: 0
   m_Name: Damage
   m_TagString: Untagged
@@ -173,7 +173,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866066386293342723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -229,7 +229,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4233235670598007287
+--- !u!114 &2749512256708624139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarImage: {fileID: 0}
-  damageAmount: 0.25
+  damageAmount: 0.15
   recoveryRate: 0.1
   timeToStartRecovery: 5
   gameOverSceneName: GameOver
@@ -256,15 +256,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ba270e61708d9af4fa4094857e08b3d6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ba270e61708d9af4fa4094857e08b3d6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ba270e61708d9af4fa4094857e08b3d6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ba270e61708d9af4fa4094857e08b3d6, type: 3}
       propertyPath: m_LocalPosition.x
