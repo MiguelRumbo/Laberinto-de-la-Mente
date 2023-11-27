@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     private bool juegoPausado = false;
     public GameObject jugador; // Asigna el objeto del jugador desde el Inspector
+    public GameObject canva;
 
     // Update is called once per frame
     void Update()
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         if (jugador != null)
         {
             jugador.SetActive(false);
+            canva.SetActive(true);
         }
 
         // Desbloquear el cursor y hacerlo visible
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
         if (jugador != null)
         {
             jugador.SetActive(true);
+            canva.SetActive(false);
         }
 
         // Bloquear el cursor y hacerlo invisible
