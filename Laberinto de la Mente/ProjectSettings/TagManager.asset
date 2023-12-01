@@ -9,7 +9,8 @@ TagManager:
   - PlantaAlta
   - PlantaBaja
   - Llave
-  - Door
+  - DoorHorizontal
+  - DoorVertical
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Raycast Detect
   - 
   - 
   - 
