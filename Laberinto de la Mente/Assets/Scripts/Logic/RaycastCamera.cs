@@ -23,5 +23,11 @@ public class RaycastCamera : MonoBehaviour
             Vector3 endPosition = cameraPosition + cameraForward * raycastDistance;
             Debug.DrawLine(cameraPosition, endPosition, Color.green);
         }
+
+        // Imprimir el tag del objeto impactado en la consola (incluso si no hay impacto)
+        if (hit.collider != null)
+        {
+            Debug.Log("Objeto impactado con tag: " + hit.collider.tag);
+        }
     }
 }
