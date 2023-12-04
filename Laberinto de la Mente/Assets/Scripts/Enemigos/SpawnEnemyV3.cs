@@ -1,10 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class SpawnEnemyV3 : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;  // Array de prefabs
+    public GameObject[] enemyPrefabs;
     public Transform playerTransform;
     public Transform[] spawnPoints;
     public Animator animator;
@@ -31,7 +32,7 @@ public class SpawnEnemyV3 : MonoBehaviour
         {
             if (canSpawn)
             {
-                SpawnAll();
+                Spawn();
                 canSpawn = false;
                 lastEnemySpawnTime = Time.time;
                 cooldownTimer = cooldownDuration;
@@ -40,18 +41,29 @@ public class SpawnEnemyV3 : MonoBehaviour
         }
     }
 
-    void SpawnAll()
+    void Spawn()
     {
         if (enemyPrefabs != null && enemyPrefabs.Length > 0)
         {
             if (spawnPoints.Length > 0)
             {
-                int enemiesToSpawn = Mathf.Min(enemyPrefabs.Length, spawnPoints.Length);
+                List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
 
-                for (int i = 0; i < enemiesToSpawn; i++)
+                for (int i = 0; i < enemyPrefabs.Length; i++)
                 {
-                    int randomEnemyIndex = Random.Range(0, enemyPrefabs.Length);
-                    GameObject newEnemy = Instantiate(enemyPrefabs[randomEnemyIndex], spawnPoints[i].position, Quaternion.identity);
+                    if (availableSpawnPoints.Count == 0)
+                    {
+                        Debug.LogError("No hay suficientes puntos de spawn disponibles.");
+                        break;
+                    }
+
+                    int randomSpawnIndex = Random.Range(0, availableSpawnPoints.Count);
+                    Transform spawnPoint = availableSpawnPoints[randomSpawnIndex];
+                    availableSpawnPoints.RemoveAt(randomSpawnIndex);
+
+                    Vector3 spawnPosition = spawnPoint.position;
+
+                    GameObject newEnemy = Instantiate(enemyPrefabs[i], spawnPosition, Quaternion.identity);
                     StartCoroutine(DestroyEnemyAfterLifetime(newEnemy, lifetime));
 
                     SeguirJugador scriptSeguirJugador = newEnemy.GetComponent<SeguirJugador>();
@@ -62,11 +74,8 @@ public class SpawnEnemyV3 : MonoBehaviour
                     }
                 }
 
-                // Verificar si hay al menos un enemigo antes de activar el animator
-                if (enemiesToSpawn > 0)
-                {
-                    animator.enabled = true;
-                }
+                // Activar el animator cuando se han creado enemigos
+                animator.enabled = true;
             }
             else
             {
@@ -75,7 +84,7 @@ public class SpawnEnemyV3 : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No se ha asignado ningún prefab de enemigo.");
+            Debug.LogError("No se han asignado prefabs de enemigos.");
         }
     }
 
@@ -83,6 +92,19 @@ public class SpawnEnemyV3 : MonoBehaviour
     {
         yield return new WaitForSeconds(enemyLifetime);
         Destroy(enemy);
+        CheckAnimatorState();
+    }
+
+    void CheckAnimatorState()
+    {
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
+        if (enemigos.Length == 0)
+        {
+            // Desactivar el animator cuando no hay enemigos
+            animator.enabled = false;
+            playerLight.enabled = true;
+        }
     }
 
     void Update()
@@ -105,13 +127,5 @@ public class SpawnEnemyV3 : MonoBehaviour
         }
 
         cooldownText.text = "Tiempo de cooldown: " + cooldownTimer.ToString("F2");
-
-        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
-
-        if (enemigos.Length == 0)
-        {
-            animator.enabled = false;
-            playerLight.enabled = true;
-        }
     }
 }

@@ -121,7 +121,7 @@ MonoBehaviour:
   healthBarImage: {fileID: 0}
   damageAmount: 0.15
   recoveryRate: 0.1
-  timeToStartRecovery: 5
+  timeToStartRecovery: 8
   gameOverSceneName: Inicio
 --- !u!1 &6866066386293342723
 GameObject:
@@ -244,7 +244,7 @@ MonoBehaviour:
   healthBarImage: {fileID: 0}
   damageAmount: 0.15
   recoveryRate: 0.1
-  timeToStartRecovery: 5
+  timeToStartRecovery: 8
   gameOverSceneName: Inicio
 --- !u!1001 &7714137808386570480
 PrefabInstance:

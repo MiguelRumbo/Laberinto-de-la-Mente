@@ -16,47 +16,12 @@ public class ControladorBarraVida : MonoBehaviour
     {
         lastDamageTime = Time.time; // Inicializa el tiempo del último daño al inicio del juego.
 
-        // Busca el objeto "Pantalla" en la escena.
-        GameObject pantallaObject = GameObject.Find("Pantalla");
+        // Busca el objeto "ImageBarra" en la jerarquía de la escena.
+        healthBarImage = GameObject.Find("Pantalla/HealthBar/ImageBarra")?.GetComponent<Image>();
 
-        // Verifica si se encontró el objeto "Pantalla" y lo imprime en la consola.
-        if (pantallaObject != null)
+        if (healthBarImage == null)
         {
-            // Busca el objeto "HealthBar" dentro de "Pantalla".
-            Transform healthBarTransform = pantallaObject.transform.Find("HealthBar");
-
-            // Verifica si se encontró el objeto "HealthBar" y lo imprime en la consola.
-            if (healthBarTransform != null)
-            {
-                // Busca el objeto "ImageBarra" dentro de "HealthBar".
-                Transform imageBarraTransform = healthBarTransform.Find("ImageBarra");
-
-                // Verifica si se encontró el objeto "ImageBarra" y si tiene el componente "Image" adjunto.
-                if (imageBarraTransform != null)
-                {
-                    Image imageComponent = imageBarraTransform.GetComponent<Image>();
-                    if (imageComponent != null)
-                    {
-                        healthBarImage = imageComponent; // Asigna el componente Image a healthBarImage.
-                    }
-                    else
-                    {
-                        Debug.LogError("Error: Se encontró el objeto ImageBarra dentro de HealthBar, pero no tiene el componente Image agregado.");
-                    }
-                }
-                else
-                {
-                    Debug.LogError("Error: No se encontró el objeto ImageBarra dentro de HealthBar.");
-                }
-            }
-            else
-            {
-                Debug.LogError("Error: No se encontró el objeto HealthBar dentro de Pantalla.");
-            }
-        }
-        else
-        {
-            Debug.LogError("Error: No se encontró el objeto Pantalla en la escena.");
+            Debug.LogError("Error: No se encontró el objeto ImageBarra en la jerarquía.");
         }
     }
 
@@ -84,11 +49,11 @@ public class ControladorBarraVida : MonoBehaviour
         {
             healthBarImage.fillAmount -= damageAmount;
             lastDamageTime = Time.time;
-        }
 
-        if (healthBarImage != null && healthBarImage.fillAmount <= 0)
-        {
-            SceneManager.LoadScene(gameOverSceneName);
+            if (healthBarImage.fillAmount <= 0)
+            {
+                SceneManager.LoadScene(gameOverSceneName);
+            }
         }
     }
 

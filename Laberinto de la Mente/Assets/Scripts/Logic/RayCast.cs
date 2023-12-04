@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RayCast : MonoBehaviour
@@ -25,19 +23,27 @@ public class RayCast : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, distancia, mask))
         {
             Deselect();
-            SelectecObject(hit.transform);
-            if(hit.collider.tag == "DoorHorizontal")
+            SelectObject(hit.transform);
+            if (hit.collider.CompareTag("DoorHorizontal"))
             {
-                if(Input.GetKeyUp(KeyCode.E))
+                if (Input.GetKeyUp(KeyCode.E))
                 {
-                    hit.collider.transform.GetComponent<DoorHorizontal>().ChangeDoorState();
+                    DoorHorizontal doorHorizontal = hit.collider.GetComponent<DoorHorizontal>();
+                    if (doorHorizontal != null)
+                    {
+                        doorHorizontal.ChangeDoorState();
+                    }
                 }
             }
-            if(hit.collider.tag == "DoorVertical")
+            else if (hit.collider.CompareTag("DoorVertical"))
             {
-                if(Input.GetKeyUp(KeyCode.E))
+                if (Input.GetKeyUp(KeyCode.E))
                 {
-                    hit.collider.transform.GetComponent<DoorVertical>().ChangeDoorState();
+                    DoorVertical doorVertical = hit.collider.GetComponent<DoorVertical>();
+                    if (doorVertical != null)
+                    {
+                        doorVertical.ChangeDoorState();
+                    }
                 }
             }
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * distancia, Color.red);
@@ -48,18 +54,26 @@ public class RayCast : MonoBehaviour
         }
     }
 
-    void SelectecObject(Transform transform)
+    void SelectObject(Transform objTransform)
     {
-        transform.GetComponent<MeshRenderer>().material.color = Color.green;
-        ultimoDetectado = transform.gameObject;
+        Renderer renderer = objTransform.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.material.color = Color.green;
+            ultimoDetectado = objTransform.gameObject;
+        }
     }
 
     void Deselect()
     {
-        if (ultimoDetectado)
+        if (ultimoDetectado != null)
         {
-            ultimoDetectado.GetComponent<Renderer>().material.color = Color.white;
-            ultimoDetectado = null;
+            Renderer renderer = ultimoDetectado.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.material.color = Color.white;
+                ultimoDetectado = null;
+            }
         }
     }
 
@@ -68,13 +82,6 @@ public class RayCast : MonoBehaviour
         Rect rect = new Rect(Screen.width / 2, Screen.height / 2, puntero.width, puntero.height);
         GUI.DrawTexture(rect, puntero);
 
-        if(ultimoDetectado)
-        {
-            TextDetect.SetActive(true);
-        }
-        else
-        {
-            TextDetect.SetActive(false);
-        }
+        TextDetect.SetActive(ultimoDetectado != null);
     }
 }
