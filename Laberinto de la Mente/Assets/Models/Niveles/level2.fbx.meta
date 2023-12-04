@@ -3,7 +3,62 @@ guid: 854ba3b7b3bf90849bd7d0492b70c3bf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cloudy Wallpaper
+    second: {fileID: 2100000, guid: 340906b86f4145d4d9e8962e6ff3556e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door
+    second: {fileID: 2100000, guid: 252c4670db3242548bdcb503e6de1824, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood Floor
+    second: {fileID: 2100000, guid: 3973facd2ce19d045ba34acf750c0e99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood Scratches and Mosses
+    second: {fileID: 2100000, guid: 0803a745a2c17d04c95582e00b6f16b5, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Clouds Wallpaper
+    second: {fileID: 2800000, guid: 0e848f0962cf87347b57052f536f2a60, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_WoodenDoor_2.15x2.15_512_albedo
+    second: {fileID: 2800000, guid: 70a7448bb728fc548ac84dcd01c8fce0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_WoodenDoor_2.15x2.15_512_normal
+    second: {fileID: 2800000, guid: 9a35a832145ec4c469c34de2da97c39e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_WoodenDoor_2.15x2.15_512_roughness
+    second: {fileID: 2800000, guid: de80ee809f9259b4e9c95fb3e3fbd564, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood-20_diffuse
+    second: {fileID: 2800000, guid: 0f1aa728cb51006468e75f02441d8ffd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood-20_metal
+    second: {fileID: 2800000, guid: d3416c6d04bf6af40a97ff880dda6d39, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood-20_smooth
+    second: {fileID: 2800000, guid: 24deb041970ec054f8791d4065ba0244, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,22 @@ guid: 0e81b36b4de05ba4cbd217f356b1792d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BonBon_skin
+    second: {fileID: 2100000, guid: 71f3ff89b254ab04191943a65f4e6e77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: abec2725f9bc98b42b5f52caa4e0c446, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BonText01
+    second: {fileID: 2800000, guid: 775ecfb92bcf68346ac5a6f4de2dfda7, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.022
+    globalScale: 2.2
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

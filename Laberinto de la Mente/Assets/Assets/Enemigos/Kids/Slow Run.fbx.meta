@@ -3,7 +3,17 @@ guid: cac1abab04eb78d458f0ffe71b5118bd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kids
+    second: {fileID: 2100000, guid: 42db76b381dd47d478073ea81da8a2ef, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: AmigitosDaniel
+    second: {fileID: 2800000, guid: e82d7cc90b13ba1409d57bf21c77a35c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -119,7 +129,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.06
+    globalScale: 6
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
