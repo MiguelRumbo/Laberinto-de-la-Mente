@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kid 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cac1abab04eb78d458f0ffe71b5118bd, type: 3}
+      propertyPath: m_TagString
+      value: Enemigo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

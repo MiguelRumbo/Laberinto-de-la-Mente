@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class ControladorGanar : MonoBehaviour
 {
     // Variable global para almacenar la información de los objetos conseguidos
-
     public static bool objetosConseguidos = false;
     public string nextScene = "";
 
@@ -18,6 +17,11 @@ public class ControladorGanar : MonoBehaviour
             {
                 // Guardar la información de que se consiguieron los objetos (puedes usar PlayerPrefs o cualquier otro método para guardar datos entre escenas)
                 PlayerPrefs.SetInt("ObjetosConseguidos", 1);
+                PlayerPrefs.SetInt("SpawnKid1", 0); // No spawnear Kid 1
+            }
+            else
+            {
+                PlayerPrefs.SetInt("SpawnKid1", 1); // Spawnear Kid 1
             }
 
             // Carga la siguiente escena por nombre
@@ -27,14 +31,7 @@ public class ControladorGanar : MonoBehaviour
 
     private void CargarSiguienteEscena(string nextScene)
     {
-        // Verifica si la escena con el nombre proporcionado existe
-        if (SceneManager.GetSceneByName(nextScene) != null)
-        {
-            SceneManager.LoadScene(nextScene);
-        }
-        else
-        {
-            Debug.LogWarning("La escena con el nombre " + nextScene + " no fue encontrada.");
-        }
+        // Carga la escena sin verificar si existe
+        SceneManager.LoadScene(nextScene);
     }
 }

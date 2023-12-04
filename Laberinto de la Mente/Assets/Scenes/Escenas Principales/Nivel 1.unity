@@ -2911,6 +2911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14a2c2800b33c3478258405baf16845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controladorGanar: {fileID: 2117842939}
 --- !u!1 &1687673757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
@@ -3441,6 +3442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14a2c2800b33c3478258405baf16845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controladorGanar: {fileID: 2117842939}
 --- !u!1 &2084517280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,7 +3605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a9f075eaec58f488c4984483b237e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1382339927}
   enemigoTag: Enemigo
   textMeshPro: {fileID: 778378081}
 --- !u!4 &2116776865
@@ -3845,6 +3847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14a2c2800b33c3478258405baf16845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controladorGanar: {fileID: 2117842939}
 --- !u!1 &28097053991413893
 GameObject:
   m_ObjectHideFlags: 0

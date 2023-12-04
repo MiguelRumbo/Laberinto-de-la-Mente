@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SpawnEnemyV3 : MonoBehaviour
+public class SpawnEnemyV4 : MonoBehaviour
 {
+    [Header("Enemy Prefabs and Spawn Points")]
     public GameObject[] enemyPrefabs;
-    public Transform playerTransform;
     public Transform[] spawnPoints;
+
+    [Header("Player Settings")]
+    public Transform playerTransform;
     public Animator animator;
     public Light playerLight;
+
+    [Header("UI Settings")]
     public TextMeshProUGUI lifetimeText;
     public TextMeshProUGUI cooldownText;
 
+    [Header("Enemy Settings")]
     public float lifetime = 30f;
     public float cooldownDuration = 1f;
+
+    [Header("Testing Controls")]
+    public bool spawnEnemy = false;
+    public bool spawnKid1 = false;
 
     private bool canSpawn = true;
     private float lastEnemySpawnTime = 0f;
@@ -23,6 +33,8 @@ public class SpawnEnemyV3 : MonoBehaviour
     void Start()
     {
         lastEnemySpawnTime = Time.time;
+        spawnEnemy = PlayerPrefs.GetInt("SpawnEnemy") == 1; // Recuperar el valor de SpawnEnemy
+        spawnKid1 = PlayerPrefs.GetInt("SpawnKid1") == 1; // Recuperar el valor de SpawnKid1
         StartCoroutine(SpawnEnemyPeriodically());
     }
 
@@ -65,15 +77,36 @@ public class SpawnEnemyV3 : MonoBehaviour
                     availableSpawnPoints.RemoveAt(randomSpawnIndex);
 
                     Vector3 spawnPosition = spawnPoint.position;
+                    GameObject newEnemy = null;
 
-                    GameObject newEnemy = Instantiate(enemyPrefabs[i], spawnPosition, Quaternion.identity);
-                    StartCoroutine(DestroyEnemyAfterLifetime(newEnemy, lifetime));
-
-                    SeguirJugador scriptSeguirJugador = newEnemy.GetComponent<SeguirJugador>();
-
-                    if (scriptSeguirJugador != null)
+                    // BonBon_T-Pose siempre debe spawnear
+                    if (i == 0)
                     {
-                        scriptSeguirJugador.jugador = playerTransform;
+                        newEnemy = Instantiate(enemyPrefabs[i], spawnPosition, Quaternion.identity);
+                    }
+
+                    // Enemy, solo debe spawanear junto con BonBon, cuando los objetosConseguidos, de ControladorGanarPuerta, no fueron conseguidos (false)
+                    if (i == 1 && !objetosConseguidosGanarPuerta && spawnEnemy)
+                    {
+                        newEnemy = Instantiate(enemyPrefabs[i], spawnPosition, Quaternion.identity);
+                    }
+
+                    // Kid 1 solo debe spawanear junto con BonBon, cuando cuando los objetosConseguidos, de ControladorGanar, no fueron conseguidos (false)
+                    if (i == 2 && !objetosConseguidosGanar && spawnKid1)
+                    {
+                        newEnemy = Instantiate(enemyPrefabs[i], spawnPosition, Quaternion.identity);
+                    }
+
+                    if (newEnemy != null)
+                    {
+                        StartCoroutine(DestroyEnemyAfterLifetime(newEnemy, lifetime));
+
+                        SeguirJugador scriptSeguirJugador = newEnemy.GetComponent<SeguirJugador>();
+
+                        if (scriptSeguirJugador != null)
+                        {
+                            scriptSeguirJugador.jugador = playerTransform;
+                        }
                     }
                 }
 
