@@ -110,7 +110,7 @@ public class EnemigoKidsScript : MonoBehaviour
         Vector3 randomPosition = Vector3.zero;
 
         // Intenta obtener una posición aleatoria en el NavMesh
-        if (NavMesh.SamplePosition(new Vector3(Random.Range(-50f, 50f), 0f, Random.Range(-50f, 50f)), out hit, 60f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(new Vector3(Random.Range(-10f, 10), 0f, Random.Range(-10, 10)), out hit, 20f, NavMesh.AllAreas))
         {
             randomPosition = hit.position;
         }
