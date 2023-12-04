@@ -86,13 +86,13 @@ public class SpawnEnemyV4 : MonoBehaviour
                     }
 
                     // Enemy, solo debe spawanear junto con BonBon, cuando los objetosConseguidos, de ControladorGanarPuerta, no fueron conseguidos (false)
-                    if (i == 1 && !objetosConseguidosGanarPuerta && spawnEnemy)
+                    if (i == 1 && !objetosConseguidosGanarPuerta && PlayerPrefs.GetInt("SpawnEnemy") == 1)
                     {
                         newEnemy = Instantiate(enemyPrefabs[i], spawnPosition, Quaternion.identity);
                     }
 
                     // Kid 1 solo debe spawanear junto con BonBon, cuando cuando los objetosConseguidos, de ControladorGanar, no fueron conseguidos (false)
-                    if (i == 2 && !objetosConseguidosGanar && spawnKid1)
+                    if (i == 2 && !objetosConseguidosGanar && PlayerPrefs.GetInt("SpawnKid1") == 1)
                     {
                         newEnemy = Instantiate(enemyPrefabs[i], spawnPosition, Quaternion.identity);
                     }
@@ -102,7 +102,6 @@ public class SpawnEnemyV4 : MonoBehaviour
                         StartCoroutine(DestroyEnemyAfterLifetime(newEnemy, lifetime));
 
                         SeguirJugador scriptSeguirJugador = newEnemy.GetComponent<SeguirJugador>();
-
                         if (scriptSeguirJugador != null)
                         {
                             scriptSeguirJugador.jugador = playerTransform;

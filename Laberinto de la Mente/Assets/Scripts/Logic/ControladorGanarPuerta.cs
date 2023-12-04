@@ -28,7 +28,6 @@ public class ControladorGanarPuerta : MonoBehaviour
             CargarSiguienteEscena(nextScene);
         }
     }
-
     private void CargarSiguienteEscena(string nextScene)
     {
         // Carga la escena sin verificar si existe

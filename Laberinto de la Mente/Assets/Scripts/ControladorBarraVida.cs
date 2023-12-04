@@ -9,7 +9,6 @@ public class ControladorBarraVida : MonoBehaviour
     public float recoveryRate = 0.1f;
     public float timeToStartRecovery = 5f;
     public string gameOverSceneName = "";
-
     private float lastDamageTime;
 
     private void Start()
@@ -52,6 +51,8 @@ public class ControladorBarraVida : MonoBehaviour
 
             if (healthBarImage.fillAmount <= 0)
             {
+                // Guarda el nombre de la escena actual antes de cargar la escena de game over.
+                PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
                 SceneManager.LoadScene(gameOverSceneName);
             }
         }

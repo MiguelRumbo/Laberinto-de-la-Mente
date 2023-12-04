@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Escenas Principales/Inicio.unity
     guid: 9514e0cc7f2bbbd4eb0824a86dec6e25
   - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Intro.unity
+    guid: f9c412d86e325ec40b8d34aad755266c
+  - enabled: 1
     path: Assets/Scenes/Escenas Principales/Nivel 1.unity
     guid: 7fb05d0d78650b8479f8355fdd504973
   - enabled: 1
@@ -18,6 +21,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Escenas Principales/Nivel 3.unity
     guid: 93e22de0f02b1e845a869f91d756b989
   - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Instrucciones.unity
+    guid: 2d4d48c29a31d744996c90918ca2d167
+  - enabled: 1
     path: Assets/Scenes/Ganaste.unity
     guid: 441a31330c6d4da49992343d27270d18
+  - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Creditos.unity
+    guid: 75446bfde1d4afd4bac2e704245a33b9
+  - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Cinematicas/Lucia.unity
+    guid: 303da96683fcc9e43b372a09d5cc63e2
+  - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Cinematicas/LuciaDaniel.unity
+    guid: 3be88ba2769297f4cbe81c61fd5110fe
+  - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Cinematicas/LuciaSofia.unity
+    guid: 7e9dc15f321b7184b9f399f091b7f434
+  - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Cinematicas/NadieSalio.unity
+    guid: 8cd4b270821e19d4282525ab3b63efbd
+  - enabled: 1
+    path: Assets/Scenes/Escenas Principales/Cinematicas/Todos.unity
+    guid: ce891b1c3e59a964bb4b448afb8d2080
+  - enabled: 1
+    path: Assets/Scenes/Escenas Principales/GameOver.unity
+    guid: 6cebcc6bc3783e74a9600e681a14bb54
   m_configObjects: {}
